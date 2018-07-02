@@ -1,0 +1,24 @@
+<div
+        style="cursor: pointer"
+   class="list-group-item clearfix flex-column align-items-start"
+        [routerLink]="book.slug"
+        [queryParams]="{allowEdit: authService.isAuthenticated() ? '1' : '0'}"
+   >
+
+  <div class="d-flex w-100 justify-content-between">
+    <h5 class="mb-1">{{book.title}}</h5>
+    <!--<small>{{book.addedTime.toLocaleString()}}</small>-->
+
+  </div>
+  <!--<p class="mb-1 float-left">{{book.description}}</p>-->
+  <!--<img [src]="book.imagePath"-->
+       <!--alt="{{book.name}}"-->
+       <!--class="img-fluid float-right">-->
+  <!--<small>{{book.author}}</small>-->
+  <div>
+   <!--<button class="btn btn-primary" (click)="onEditBook()">Details</button>-->
+    <button  role="button" class="btn btn-danger" [disabled]="!authService.isAuthenticated()" (click)="onDeleteBook()" >Delete Book</button>
+  </div>
+    <a (click)="goToUrl()" target="_blank">Youtube(Document method)</a>
+    <a [href]="'http://youtube.com'" [target]="'_blank'">Youtube [HREF]</a>
+</div>
